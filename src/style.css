@@ -8,11 +8,14 @@ ul {
 }
 
 div.container {
-  border: 2px solid rgb(69, 69, 206);
-  border-radius: 8px;
   max-width: 800px;
   padding: 0px;
   margin-top: 20px;
+}
+
+div.wrapper {
+  border: 2px solid rgb(69, 69, 206);
+  border-radius: 8px;
 }
 
 div.form-section {
@@ -93,4 +96,9 @@ li.week-days {
 p.group-days {
   text-align: center;
   font-size: 26px;
+}
+
+p.github-link {
+  font-size: 16px;
+  text-align: center;
 }

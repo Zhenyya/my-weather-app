@@ -17,103 +17,111 @@
   </head>
   <body>
     <div class="container">
-      <div class="row form-section">
-        <div class="col">
-          <form id="search-form">
-            <input
-              type="text"
-              placeholder="Enter the city"
-              autocomplete="off"
-              autofocus="on"
-              class="city-choice"
-              id="search-input"
-            />
-            <input type="submit" value="Search" class="search-button" />
-            <input
-              type="button"
-              value="Current location"
-              class="current-button"
-              id="current-button"
-            />
-          </form>
+      <div class="wrapper">
+        <div class="row form-section">
+          <div class="col">
+            <form id="search-form">
+              <input
+                type="text"
+                placeholder="Enter the city"
+                autocomplete="off"
+                autofocus="on"
+                class="city-choice"
+                id="search-input"
+              />
+              <input type="submit" value="Search" class="search-button" />
+              <input
+                type="button"
+                value="Current location"
+                class="current-button"
+                id="current-button"
+              />
+            </form>
+          </div>
+        </div>
+        <h1 class="today-city" id="current-city">Lviv, Ukraine</h1>
+        <div class="row today-section">
+          <div class="col-3">
+            <ul class="today">
+              <!-- <li class="today-city" id="current-city">Lviv, Ukraine</li> -->
+              <li class="today-date">16 July</li>
+              <li id="today-day-time">Sunday 12:00</li>
+            </ul>
+          </div>
+          <div class="col-3">
+            <span class="today-temperature">+</span>
+            <span class="today-temperature" id="today-temperature">28</span>
+            <span class="units">
+              <a href="#" class="active-unit" id="tempCelsius"> °C</a> |
+              <a href="#" id="tempFahrenheit"> °F</a>
+            </span>
+          </div>
+          <div class="col-3"><p class="today-icon">☁️</p></div>
+          <div class="col-3">
+            <!-- <br /> -->
+            <ul>
+              <li>Humidity: <span id="humidity">80</span>%</li>
+              <li>Wind: <span id="wind-speed">8</span> km/h</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <p class="group-days">Forecast for next 5 days</p>
+        </div>
+        <div class="row">
+          <div class="col">
+            <ul class="next-days">
+              <li class="week-days">Mon</li>
+              <li>04.07</li>
+              <li class="weather-icon">🌤️</li>
+              <li>+31°C</li>
+              <li>+17°C</li>
+            </ul>
+          </div>
+          <div class="col">
+            <ul class="next-days">
+              <li class="week-days">Tue</li>
+              <li>05.07</li>
+              <li class="weather-icon">🌦️</li>
+              <li>+30°C</li>
+              <li>+17°C</li>
+            </ul>
+          </div>
+          <div class="col">
+            <ul class="next-days">
+              <li class="week-days">Wed</li>
+              <li>06.07</li>
+              <li class="weather-icon">🌧️</li>
+              <li>+23°C</li>
+              <li>+13°C</li>
+            </ul>
+          </div>
+          <div class="col">
+            <ul class="next-days">
+              <li class="week-days">Thu</li>
+              <li>07.07</li>
+              <li class="weather-icon">🌧️</li>
+              <li>+24°C</li>
+              <li>+13°C</li>
+            </ul>
+          </div>
+          <div class="col">
+            <ul class="next-days">
+              <li class="week-days">Fri</li>
+              <li>08.07</li>
+              <li class="weather-icon">🌦️</li>
+              <li>+21°C</li>
+              <li>+12°C</li>
+            </ul>
+          </div>
         </div>
       </div>
-      <h1 class="today-city" id="current-city">Lviv, Ukraine</h1>
-      <div class="row today-section">
-        <div class="col-3">
-          <ul class="today">
-            <!-- <li class="today-city" id="current-city">Lviv, Ukraine</li> -->
-            <li class="today-date">16 July</li>
-            <li id="today-day-time">Sunday 12:00</li>
-          </ul>
-        </div>
-        <div class="col-3">
-          <span class="today-temperature">+</span>
-          <span class="today-temperature" id="today-temperature">28</span>
-          <span class="units">
-            <a href="#" class="active-unit" id="tempCelsius"> °C</a> |
-            <a href="#" id="tempFahrenheit"> °F</a>
-          </span>
-        </div>
-        <div class="col-3"><p class="today-icon">☁️</p></div>
-        <div class="col-3">
-          <!-- <br /> -->
-          <ul>
-            <li>Humidity: <span id="humidity">80</span>%</li>
-            <li>Wind: <span id="wind-speed">8</span> km/h</li>
-          </ul>
-        </div>
-      </div>
-      <div class="row">
-        <p class="group-days">Forecast for next 5 days</p>
-      </div>
-      <div class="row">
-        <div class="col">
-          <ul class="next-days">
-            <li class="week-days">Mon</li>
-            <li>04.07</li>
-            <li class="weather-icon">🌤️</li>
-            <li>+31°C</li>
-            <li>+17°C</li>
-          </ul>
-        </div>
-        <div class="col">
-          <ul class="next-days">
-            <li class="week-days">Tue</li>
-            <li>05.07</li>
-            <li class="weather-icon">🌦️</li>
-            <li>+30°C</li>
-            <li>+17°C</li>
-          </ul>
-        </div>
-        <div class="col">
-          <ul class="next-days">
-            <li class="week-days">Wed</li>
-            <li>06.07</li>
-            <li class="weather-icon">🌧️</li>
-            <li>+23°C</li>
-            <li>+13°C</li>
-          </ul>
-        </div>
-        <div class="col">
-          <ul class="next-days">
-            <li class="week-days">Thu</li>
-            <li>07.07</li>
-            <li class="weather-icon">🌧️</li>
-            <li>+24°C</li>
-            <li>+13°C</li>
-          </ul>
-        </div>
-        <div class="col">
-          <ul class="next-days">
-            <li class="week-days">Fri</li>
-            <li>08.07</li>
-            <li class="weather-icon">🌦️</li>
-            <li>+21°C</li>
-            <li>+12°C</li>
-          </ul>
-        </div>
-      </div>
+      <p class="github-link">
+        <a href="https://github.com/Zhenyya/my-weather-app" target="_blank">
+          Open source code</a
+        >
+        by Yevheniia Manko</p class="github-link"
+      >
     </div>
     <script src="src/index.js"></script>
   </body>
