@@ -1,5 +1,6 @@
 body {
   font-size: 22px;
+  font-family: sf pro light, helvetica, open;
 }
 
 ul {
@@ -71,8 +72,7 @@ div.today-section {
 
 .today-temperature {
   font-size: 40px;
-  /* position: relative;
-  bottom: -24px; */
+  line-height: 1.7;
 }
 
 .units {
