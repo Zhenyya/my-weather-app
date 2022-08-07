@@ -68,18 +68,18 @@ div.today-section {
   font-size: 60px;
   text-align: center;
   position: relative;
-  top: -10px;
+  top: -20px;
 }
 
 .today-temperature {
   font-size: 48px;
-  line-height: 1.7;
+  line-height: 1.2;
 }
 
 .units {
   font-size: 24px;
   position: relative;
-  bottom: 16px;
+  top: -20px;
 }
 
 .active-unit {
@@ -107,4 +107,8 @@ p.group-days {
 p.github-link {
   font-size: 16px;
   text-align: center;
+}
+
+#description::first-letter {
+  text-transform: capitalize;
 }

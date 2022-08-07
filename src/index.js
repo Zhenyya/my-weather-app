@@ -31,7 +31,7 @@ function showWeather(response) {
   let temperatureElement = document.querySelector("#today-temperature");
   temperatureElement.innerHTML = temperature;
 
-  let weatherDescription = response.data.weather[0].main;
+  let weatherDescription = response.data.weather[0].description;
   let descriptionElement = document.querySelector("#description");
   descriptionElement.innerHTML = weatherDescription;
 
@@ -46,6 +46,13 @@ function showWeather(response) {
   let cityName = response.data.name;
   let cityElement = document.querySelector("#current-city");
   cityElement.innerHTML = cityName;
+
+  let weatherIcon = response.data.weather[0].icon;
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${weatherIcon}@2x.png`
+  );
 
   // let precipitation = response.data.main.precipitaion;
   // let precipitationElement = document.querySelector("#precipitation");
