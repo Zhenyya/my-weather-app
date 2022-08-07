@@ -30,7 +30,10 @@ function showWeather(response) {
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#today-temperature");
   temperatureElement.innerHTML = temperature;
-  // console.log(response.data);
+
+  let weatherDescription = response.data.weather[0].main;
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = weatherDescription;
 
   let humidity = response.data.main.humidity;
   let humidityElement = document.querySelector("#humidity");
@@ -44,6 +47,13 @@ function showWeather(response) {
   let cityElement = document.querySelector("#current-city");
   cityElement.innerHTML = cityName;
 
+  // let precipitation = response.data.main.precipitaion;
+  // let precipitationElement = document.querySelector("#precipitation");
+  // precipitationElement.innerHTML = precipitation;
+
+  // test
+  console.log(response.data);
+
   showDayAndTime();
 }
 
@@ -52,9 +62,9 @@ function searchCity(event) {
   let userInput = document.querySelector("#search-input");
   let city = userInput.value;
 
-  // let currentCity = document.querySelector("#current-city");
+  let currentCity = document.querySelector("#current-city");
   if (userInput.value) {
-    // currentCity.innerHTML = userInput.value;
+    currentCity.innerHTML = userInput.value;
     userInput.value = "";
   } else {
     currentCity.innerHTML = null;
