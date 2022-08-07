@@ -31,6 +31,8 @@ function showWeather(response) {
   let temperatureElement = document.querySelector("#today-temperature");
   temperatureElement.innerHTML = temperature;
 
+  cityCelsiusTemperature = response.data.main.temp;
+
   let weatherDescription = response.data.weather[0].description;
   let descriptionElement = document.querySelector("#description");
   descriptionElement.innerHTML = weatherDescription;
@@ -58,8 +60,10 @@ function showWeather(response) {
   // let precipitationElement = document.querySelector("#precipitation");
   // precipitationElement.innerHTML = precipitation;
 
-  // test
-  console.log(response.data);
+  tempCelsius.classList.add("active-unit");
+  tempFahrenheit.classList.remove("active-unit");
+
+  // console.log(response.data);
 
   showDayAndTime();
 }
@@ -106,3 +110,35 @@ function showWeatherCurrentPlace() {
 
 let currentPlaceButton = document.querySelector("#current-button");
 currentPlaceButton.addEventListener("click", showWeatherCurrentPlace);
+
+// Yemperature inuts switch
+
+let cityCelsiusTemperature = null;
+
+function switchToFahrenheit(event) {
+  event.preventDefault();
+
+  let farenheitTemperature = Math.round(cityCelsiusTemperature * 1.8 + 32);
+
+  let currentTemp = document.querySelector("#today-temperature");
+  currentTemp.innerHTML = farenheitTemperature;
+
+  tempCelsius.classList.remove("active-unit");
+  tempFahrenheit.classList.add("active-unit");
+}
+
+let tempFahrenheit = document.querySelector("#tempFahrenheit");
+tempFahrenheit.addEventListener("click", switchToFahrenheit);
+
+function switchToCelsius(event) {
+  event.preventDefault();
+
+  let currentTemp = document.querySelector("#today-temperature");
+  currentTemp.innerHTML = Math.round(cityCelsiusTemperature);
+
+  tempCelsius.classList.add("active-unit");
+  tempFahrenheit.classList.remove("active-unit");
+}
+
+let tempCelsius = document.querySelector("#tempCelsius");
+tempCelsius.addEventListener("click", switchToCelsius);

@@ -9,6 +9,10 @@ ul {
   line-height: 1.2;
 }
 
+a {
+  text-decoration: none;
+}
+
 div.container {
   max-width: 800px;
   margin-top: 20px;
@@ -83,6 +87,11 @@ div.today-section {
 }
 
 .active-unit {
+  color: #000;
+  cursor: default;
+}
+
+.active-unit:hover {
   color: #000;
   text-decoration: none;
 }
