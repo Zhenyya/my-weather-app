@@ -10,7 +10,12 @@ ul {
 }
 
 a {
+  color: #ad07f9;
   text-decoration: none;
+}
+
+a:hover {
+  color: #37b50a;
 }
 
 div.container {
@@ -72,12 +77,13 @@ div.today-section {
   font-size: 60px;
   text-align: center;
   position: relative;
-  top: -20px;
+  top: -28px;
 }
 
 .today-temperature {
   font-size: 48px;
-  line-height: 1.2;
+  line-height: 1;
+  margin-left: 10px;
 }
 
 .units {

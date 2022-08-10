@@ -111,7 +111,7 @@ function showWeatherCurrentPlace() {
 let currentPlaceButton = document.querySelector("#current-button");
 currentPlaceButton.addEventListener("click", showWeatherCurrentPlace);
 
-// Yemperature inuts switch
+// Yemperature units switch
 
 let cityCelsiusTemperature = null;
 
@@ -142,3 +142,29 @@ function switchToCelsius(event) {
 
 let tempCelsius = document.querySelector("#tempCelsius");
 tempCelsius.addEventListener("click", switchToCelsius);
+
+function showForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `        
+    <div class="col-2">
+      <ul class="next-days">
+        <li class="week-days">${day}</li>
+        <li>08.07</li>
+        <li class="weather-icon">🌦️</li>
+        <li>21°C</li>
+        <li>12°C</li>
+      </ul>
+    </div>
+    `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+showForecast();
