@@ -24,7 +24,7 @@ function showDayAndTime() {
   currentDayAndTime.innerHTML = `${day} ${hours}:${minutes}`;
 }
 
-showDayAndTime();
+// showDayAndTime();
 
 function showWeather(response) {
   let temperature = Math.round(response.data.main.temp);
@@ -56,19 +56,20 @@ function showWeather(response) {
     `https://openweathermap.org/img/wn/${weatherIcon}@2x.png`
   );
 
-  // let precipitation = response.data.main.precipitaion;
-  // let precipitationElement = document.querySelector("#precipitation");
-  // precipitationElement.innerHTML = precipitation;
-
   tempCelsius.classList.add("active-unit");
   tempFahrenheit.classList.remove("active-unit");
-
-  // console.log(response.data);
 
   showDayAndTime();
 }
 
-function searchCity(event) {
+function searchCity(city) {
+  let apiKey = "a49ef2d4228aac2d8121d1901ee44af7";
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(showWeather);
+}
+
+function handleEvent(event) {
   event.preventDefault();
   let userInput = document.querySelector("#search-input");
   let city = userInput.value;
@@ -82,14 +83,11 @@ function searchCity(event) {
     alert("Please type a city");
   }
 
-  let apiKey = "a49ef2d4228aac2d8121d1901ee44af7";
-  let units = "metric";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-  axios.get(apiUrl).then(showWeather);
+  searchCity(city);
 }
 
 let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", searchCity);
+searchForm.addEventListener("submit", handleEvent);
 
 function retrivePosition(position) {
   let apiKey = "a49ef2d4228aac2d8121d1901ee44af7";
@@ -111,7 +109,9 @@ function showWeatherCurrentPlace() {
 let currentPlaceButton = document.querySelector("#current-button");
 currentPlaceButton.addEventListener("click", showWeatherCurrentPlace);
 
-// Yemperature units switch
+searchCity("Lviv");
+
+// Temperature units switch
 
 let cityCelsiusTemperature = null;
 
@@ -143,6 +143,8 @@ function switchToCelsius(event) {
 let tempCelsius = document.querySelector("#tempCelsius");
 tempCelsius.addEventListener("click", switchToCelsius);
 
+// Display forecast
+
 function showForecast() {
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
@@ -155,9 +157,11 @@ function showForecast() {
       <ul class="next-days">
         <li class="week-days">${day}</li>
         <li>08.07</li>
-        <li class="weather-icon">🌦️</li>
-        <li>21°C</li>
-        <li>12°C</li>
+        <li class="weather-icon">
+          <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="" width="54" />
+        </li>
+        <li class="max-temperature">21°C</li>
+        <li class="min-temperature">12°C</li>
       </ul>
     </div>
     `;

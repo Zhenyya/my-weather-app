@@ -106,6 +106,15 @@ ul.next-days li {
   text-align: center;
 }
 
+.max-temperature {
+  font-size: 18px;
+}
+
+.min-temperature {
+  font-size: 18px;
+  opacity: 0.8;
+}
+
 li.weather-icon {
   font-size: 26px;
 }
