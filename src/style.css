@@ -69,7 +69,7 @@ div.today-section {
 
 .today-city {
   margin-left: 33px;
-  font-size: 26px;
+  font-size: 30px;
   font-weight: 700;
 }
 
@@ -77,13 +77,13 @@ div.today-section {
   font-size: 60px;
   text-align: center;
   position: relative;
-  top: -28px;
+  top: -18px;
 }
 
 .today-temperature {
   font-size: 48px;
-  line-height: 1;
-  margin-left: 10px;
+  line-height: 1.5;
+  margin-left: 15px;
 }
 
 .units {
@@ -100,6 +100,10 @@ div.today-section {
 .active-unit:hover {
   color: #000;
   text-decoration: none;
+}
+
+.humidity-and-wind-block {
+  padding-top: 10px;
 }
 
 ul.next-days li {

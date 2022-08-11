@@ -9,6 +9,21 @@ function showDayAndTime() {
     "Saturday",
   ];
 
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
   let today = new Date();
   let day = days[today.getDay()];
   let hours = today.getHours();
@@ -22,9 +37,13 @@ function showDayAndTime() {
 
   let currentDayAndTime = document.querySelector("#today-day-time");
   currentDayAndTime.innerHTML = `${day} ${hours}:${minutes}`;
-}
 
-// showDayAndTime();
+  let date = today.getDate();
+  let month = months[today.getMonth()];
+
+  let currentDate = document.querySelector("#today-date");
+  currentDate.innerHTML = `${date} ${month}`;
+}
 
 function showWeather(response) {
   let temperature = Math.round(response.data.main.temp);
@@ -156,7 +175,6 @@ function showForecast() {
     <div class="col-2">
       <ul class="next-days">
         <li class="week-days">${day}</li>
-        <li>08.07</li>
         <li class="weather-icon">
           <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="" width="54" />
         </li>
