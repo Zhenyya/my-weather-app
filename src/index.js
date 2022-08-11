@@ -28,6 +28,7 @@ function showDayAndTime() {
   let day = days[today.getDay()];
   let hours = today.getHours();
   let minutes = today.getMinutes();
+
   if (hours < 10) {
     hours = `0${hours}`;
   }
@@ -43,6 +44,15 @@ function showDayAndTime() {
 
   let currentDate = document.querySelector("#today-date");
   currentDate.innerHTML = `${date} ${month}`;
+}
+
+// new function
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "a49ef2d4228aac2d8121d1901ee44af7";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(showForecast);
 }
 
 function showWeather(response) {
@@ -79,6 +89,10 @@ function showWeather(response) {
   tempFahrenheit.classList.remove("active-unit");
 
   showDayAndTime();
+
+  // test API with forecast
+
+  getForecast(response.data.coord);
 }
 
 function searchCity(city) {
@@ -164,29 +178,67 @@ tempCelsius.addEventListener("click", switchToCelsius);
 
 // Display forecast
 
-function showForecast() {
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return daysOfWeek[day];
+}
+
+function formatDate(timestamp) {
+  let datestamp = new Date(timestamp * 1000);
+  let date = datestamp.getDate();
+  let month = datestamp.getMonth() + 1;
+  if (month < 10) {
+    month = `0${month}`;
+  }
+  let fullDate = `${date}/${month}`;
+  return fullDate;
+}
+
+function formatTime(timestamp) {
+  let stamp = new Date(timestamp * 1000);
+  let hours = stamp.getHours();
+  let minutes = stamp.getMinutes();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${hours}:${minutes}`;
+}
+
+function showForecast(response) {
+  let dailyForecast = response.data.list;
+
   let forecastElement = document.querySelector("#forecast");
+
   let forecastHTML = `<div class="row">`;
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `        
-    <div class="col-2">
+
+  dailyForecast.forEach(function (forecastDay, index) {
+    let time = formatTime(forecastDay.dt);
+
+    if (time === "12:00") {
+      forecastHTML =
+        forecastHTML +
+        `        
+    <div class="col">
       <ul class="next-days">
-        <li class="week-days">${day}</li>
+        <li class="week-days">${formatDay(forecastDay.dt)}</li>
+        <li class="week-date">${formatDate(forecastDay.dt)}</li>
         <li class="weather-icon">
-          <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="" width="54" />
+          <img src="https://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png" alt="" width="54" />
         </li>
-        <li class="max-temperature">21°C</li>
-        <li class="min-temperature">12°C</li>
+        <li class="max-temperature">${Math.round(forecastDay.main.temp)}°C</li>
       </ul>
     </div>
     `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-
-showForecast();

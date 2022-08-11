@@ -3,6 +3,12 @@ body {
   font-family: sf pro light, helvetica, open;
 }
 
+h2 {
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
 ul {
   list-style: none;
   padding: 0px;
@@ -114,7 +120,7 @@ ul.next-days li {
   font-size: 18px;
 }
 
-.min-temperature {
+.week-date {
   font-size: 18px;
   opacity: 0.8;
 }
@@ -134,7 +140,8 @@ p.group-days {
 
 p.github-link {
   font-size: 16px;
-  text-align: center;
+  margin-left: 30px;
+  /* text-align: center; */
 }
 
 #description::first-letter {
