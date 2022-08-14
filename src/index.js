@@ -46,10 +46,7 @@ function showDayAndTime() {
   currentDate.innerHTML = `${date} ${month}`;
 }
 
-// new function
-
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "a49ef2d4228aac2d8121d1901ee44af7";
   let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(showForecast);
@@ -89,8 +86,6 @@ function showWeather(response) {
   tempFahrenheit.classList.remove("active-unit");
 
   showDayAndTime();
-
-  // test API with forecast
 
   getForecast(response.data.coord);
 }
@@ -136,7 +131,6 @@ function retrivePosition(position) {
 
 function showWeatherCurrentPlace() {
   navigator.geolocation.getCurrentPosition(retrivePosition);
-  // alert("Current button was clicked");
 }
 
 let currentPlaceButton = document.querySelector("#current-button");
